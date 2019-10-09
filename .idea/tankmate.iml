@@ -51,8 +51,6 @@
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.5, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.3, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="factory_bot (v5.0.2, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="factory_bot_rails (v5.0.2, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.11.1, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.9.1, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
