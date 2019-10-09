@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem "omniauth-rails_csrf_protection"
 
 
 group :development, :test do
