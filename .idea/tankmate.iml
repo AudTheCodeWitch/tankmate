@@ -62,6 +62,8 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.0.2, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.4.0, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.3.1, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.13.1, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multipart-post (v2.1.1, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.5.2, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.10.4, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.12.2, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
