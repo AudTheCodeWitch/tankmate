@@ -21,7 +21,19 @@ User.all.each do |u|
   5.times do
     name = "Test Tank #{u.tanks.length + 1}"
     size = Faker::Number.within(range: 1..100)
-    description = Faker::Quote
+    description = Faker::Quote.famous_last_words
     u.tanks.build(name: name, size: size, description: description)
+    u.save
   end
+end
+
+# Populate tanks with fish and plants
+Tank.all.each do |t|
+  t.fish.build(species: "Betta")
+  t.fish.build(species: "Neon Tetra")
+  t.fish.build(species: "Zebra Danio")
+  t.plants.build(species: "Cabomba")
+  t.plants.build(species: "Moss Ball")
+  t.plants.build(species: "Java Moss")
+  t.save
 end
