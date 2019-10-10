@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_224057) do
+ActiveRecord::Schema.define(version: 2019_10_10_153346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fish", force: :cascade do |t|
+    t.string "species"
+    t.string "image"
+    t.bigint "tank_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tank_id"], name: "index_fish_on_tank_id"
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.string "species"
+    t.string "image"
+    t.bigint "tank_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tank_id"], name: "index_plants_on_tank_id"
+  end
 
   create_table "tanks", force: :cascade do |t|
     t.string "name"
@@ -44,4 +62,6 @@ ActiveRecord::Schema.define(version: 2019_10_09_224057) do
     t.index ["uid"], name: "index_users_on_uid"
   end
 
+  add_foreign_key "fish", "tanks"
+  add_foreign_key "plants", "tanks"
 end
