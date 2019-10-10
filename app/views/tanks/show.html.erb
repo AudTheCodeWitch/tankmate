@@ -1,0 +1,9 @@
+<h1><%= @tank.name.upcase %></h1>
+<h2>Size: <%= @tank.size %> gallons</h2>
+<% if @tank.image %>
+  <img src="<%= @tank.image %>" alt="<%= @tank.name.capitalize %> Image" height="300">
+<% else %>
+  No Image Uploaded
+<% end %>
+<h3>Description:</h3>
+<p><%= @tank.description %></p>
