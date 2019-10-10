@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :plants
   resources :fish
   root to: 'application#home'
   devise_for :users, :controllers => { registrations: 'registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
