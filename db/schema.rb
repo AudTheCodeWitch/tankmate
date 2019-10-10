@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_153346) do
 
   create_table "fish", force: :cascade do |t|
     t.string "species"
-    t.string "image", default: "public/images/fish.png"
+    t.string "image", default: "/images/fish.png"
     t.bigint "tank_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_153346) do
 
   create_table "plants", force: :cascade do |t|
     t.string "species"
-    t.string "image", default: "public/images/plant.jpg"
+    t.string "image", default: "/images/plant.jpg"
     t.bigint "tank_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
