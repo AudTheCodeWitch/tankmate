@@ -1,9 +1,33 @@
 <h1><%= @tank.name.upcase %></h1>
+
 <h2>Size: <%= @tank.size %> gallons</h2>
+
 <% if @tank.image %>
   <img src="<%= @tank.image %>" alt="<%= @tank.name.capitalize %> Image" height="300">
 <% else %>
   No Image Uploaded
 <% end %>
+
 <h3>Description:</h3>
 <p><%= @tank.description %></p>
+
+<h3>Stock List:</h3>
+<div>
+  <h4>Fish:</h4>
+  <% @tank.fish.each do |f| %>
+    <%= f.species %> - <img src="<%= f.image %>" alt="<%= f.species.capitalize %>" height="50"><br>
+  <% end %>
+</div>
+
+<div>
+  <h4>Plants:</h4>
+  <% @tank.plants.each do |p| %>
+    <%= p.species %> - <img src="<%= p.image %>" alt="<%= p.species.capitalize %>" height="50"><br>
+  <% end %>
+</div>
+
+<% if @tank.user == current_user %>
+    <%= button_to "Stock Tank", new_fish_path, method: :get %>
+    <%= button_to "Edit Tank Details", edit_user_tank_path, method: :get %>
+    <%= button_to "Delete Tank", user_tank_path, method: :delete %>
+<% end %>
