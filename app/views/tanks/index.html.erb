@@ -1,1 +1,9 @@
-<%= @tanks %>
+<ul>
+<% @tanks.each do |t| %>
+  <li>
+    Owner: <%= t.user.name %><br>
+    Tank: <%= t.name %> - <%= t.size %> gallons<br>
+    <%= t.description %><br><br>
+  </li>
+<% end %>
+</ul>
