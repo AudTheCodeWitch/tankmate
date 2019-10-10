@@ -1,4 +1,4 @@
-<%= form_for([ :user, @tank]) do |f| %>
+<%= form_for( [:user, @tank] ) do |f| %>
   <%= f.hidden_field :user_id %>
   <p><%= f.label :name %>:
     <%= f.text_field :name %></p>
