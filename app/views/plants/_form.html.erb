@@ -1,0 +1,10 @@
+<%= form_for( @plant ) do |f| %>
+  <%= f.hidden_field :tank_id %>
+  <p><%= f.label :species %>:
+    <%= f.text_field :species %></p>
+  <p><%= f.label :quantity %>:
+    <%= f.number_field :quantity %><br></p>
+  <p><%= f.label :image, "Image URL" %>:
+    <%= f.text_field :image %></p>
+  <%= f.submit %>
+<% end %>
