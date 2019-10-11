@@ -12,7 +12,7 @@
 <div>
   <h2>Tanks</h2>
   <% @user.tanks.each do |t| %>
-    <%= link_to t.name, user_tank_path(@user, t) %> - <%= t.size %><br>
+    <%= link_to t.name, user_tank_path(@user, t) %> - <%= t.size %> gallons<br>
     <% if t.image %>
       <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100"><br>
     <% end %>
