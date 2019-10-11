@@ -12,11 +12,9 @@ class TanksController < ApplicationController
   end
 
   def create
-    @user = current_user
     @tank = Tank.new(tank_params)
     if @tank.save
-      # binding.pry
-      redirect_to user_tank_path(@user, @tank)
+      redirect_to user_tank_path(current_user, @tank)
     else
       render :new
     end
