@@ -2,7 +2,7 @@
 
 <h2>Size: <%= @tank.size %> gallons</h2>
 
-<% if @tank.image %>
+<% if !@tank.image.blank? %>
   <img src="<%= @tank.image %>" alt="<%= @tank.name.capitalize %> Image" height="300">
 <% else %>
   No Image Uploaded
