@@ -1,0 +1,4 @@
+<%= fish.quantity %> <%= fish.species.pluralize(fish.quantity) %> - <img src="<%= fish.image %>" alt="<%= fish.species.capitalize %>" height="50"><br>
+<% if @tank.user == current_user %>
+  <%= button_to "Update Stock", edit_tank_fish_path(@tank, fish), method: :get %>
+<% end %>

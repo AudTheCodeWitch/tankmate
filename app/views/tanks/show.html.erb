@@ -18,12 +18,7 @@
 <h3>Stock List:</h3>
 <div>
   <h4>Fish:</h4>
-  <% @tank.fish.each do |f| %>
-    <%= f.quantity %> <%= f.species.pluralize(f.quantity) %> - <img src="<%= f.image %>" alt="<%= f.species.capitalize %>" height="50"><br>
-    <% if @tank.user == current_user %>
-      <%= button_to "Update Stock", edit_tank_fish_path(@tank, f), method: :get %>
-    <% end %>
-  <% end %>
+  <%= render @tank.fish %>
   <% if @tank.user == current_user %>
     <br>
     <%= button_to "Add Fish", new_tank_fish_path(@tank), method: :get %>
@@ -32,16 +27,14 @@
 
 <div>
   <h4>Plants:</h4>
-  <% @tank.plants.each do |p| %>
-    <%= p.quantity %> <%= p.species.pluralize(p.quantity) %> - <img src="<%= p.image %>" alt="<%= p.species.capitalize %>" height="50"><br>
-    <% if @tank.user == current_user %>
-      <%= button_to "Update Stock", edit_tank_plant_path(@tank, p), method: :get %>
-    <% end %>
-  <% end %>
+  <%= render @tank.plants %>
   <% if @tank.user == current_user %>
     <br>
     <%= button_to "Add Plants", new_tank_plant_path(@tank), method: :get %>
   <% end %>
 </div>
-<br>
+<% if @tank.user != current_user %>
+  <br>
+  <%= button_to "#{@tank.user.name}'s Tanks", user_path(@tank.user_id), method: :get %>
+<% end %>
 
