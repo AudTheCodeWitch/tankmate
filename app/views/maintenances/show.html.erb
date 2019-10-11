@@ -1,0 +1,9 @@
+<h1><%= @maintenance.due.upcase %> Maintenance</h1>
+
+<h2>Status: <%= @maintenance.complete? ? "Complete" : "Incomplete" %></h2>
+
+<h3>Notes:</h3>
+<%= @maintenance.notes %>
+
+### render tasks on tanks partial ###
+
