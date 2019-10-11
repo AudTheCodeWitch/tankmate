@@ -1,4 +1,4 @@
-<%= form_for( @plant ) do |f| %>
+<%= form_for( [:tank, @plant] ) do |f| %>
   <%= f.hidden_field :tank_id %>
   <p><%= f.label :species %>:
     <%= f.text_field :species %></p>
