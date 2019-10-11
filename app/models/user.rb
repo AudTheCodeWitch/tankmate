@@ -20,4 +20,30 @@ class User < ApplicationRecord
   def name
     "#{first_name} #{last_name}"
   end
+
+  def gallons
+    gallons = 0
+    tanks.each do |t|
+      gallons += t.size
+    end
+    gallons
+  end
+
+  def fish_count
+    fish_count = 0
+    tanks.each do |t|
+      fish_count += t.fish.count
+    end
+    fish_count
+  end
+
+  def plants_count
+    plants_count = 0
+    tanks.each do |t|
+      plants_count += t.plants.count
+    end
+    plants_count
+  end
+
+
 end

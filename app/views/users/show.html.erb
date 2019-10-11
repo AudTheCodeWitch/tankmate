@@ -1,17 +1,29 @@
-<h1><%= @user.name %>'s Tanks</h1>
-<% @user.tanks.each do |t| %>
-  <%= link_to t.name, user_tank_path(@user, t) %> - <%= t.size %><br>
-  <% if t.image %>
-    <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100"><br>
+<h1><%= @user.name %></h1>
+<div>
+  <h2>Stats</h2>
+  <p>Total tanks: <%= @user.tanks.count %></p>
+  <p>Total gallons: <%= @user.gallons %></p>
+  <p>Total fish: <%= @user.fish_count %></p>
+  <p>Total plants: <%= @user.plants_count %></p>
+  <p>Completed Tasks: WRITE METHOD</p>
+  <p>Incomplete Tasks: WRITE METHOD</p>
+</div>
+
+<div>
+  <h2>Tanks</h2>
+  <% @user.tanks.each do |t| %>
+    <%= link_to t.name, user_tank_path(@user, t) %> - <%= t.size %> gallons<br>
+    <% if t.image %>
+      <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100"><br>
+    <% end %>
+    <% if @user == current_user %>
+      <%= button_to "Update Tank", edit_user_tank_path(@user, t), method: :get %>
+      <%= button_to "Delete Tank", user_tank_path(@user, t), method: :delete %>
+    <% end %>
+    <br>
   <% end %>
-  <% if @user == current_user %>
-    <%= button_to "Update Tank", edit_user_tank_path(@user, t), method: :get %>
-    <%= button_to "Delete Tank", user_tank_path(@user, t), method: :delete %>
-  <% end %>
-  <br>
 
   <% if @user == current_user %>
     <%= button_to "Create Tank", new_user_tank_path(@user), method: :get %>
   <% end %>
-
-<% end %>
+</div>

@@ -14,28 +14,20 @@
 <h3>Stock List:</h3>
 <div>
   <h4>Fish:</h4>
-
-  ### I want it to look like this ### <br>
-  2 Bettas - <img src="/images/fish.png" alt="Betta Image" height="50"><br>
-  1 Neon Tetra - <img src="/images/fish.png" alt="Betta Image" height="50"><br>
-  1 Zebra Danio - <img src="/images/fish.png" alt="Betta Image" height="50"><br>
-  <br><br><br><br><br>
-  ### Right now, I have this ### <br>
-
-
   <% @tank.fish.each do |f| %>
-    <%= f.species %> - <img src="<%= f.image %>" alt="<%= f.species.capitalize %>" height="50"><br>
+    <%= f.quantity %> <%= f.species.pluralize(f.quantity) %> - <img src="<%= f.image %>" alt="<%= f.species.capitalize %>" height="50"><br>
   <% end %>
 </div>
 
 <div>
   <h4>Plants:</h4>
   <% @tank.plants.each do |p| %>
-    <%= p.species %> - <img src="<%= p.image %>" alt="<%= p.species.capitalize %>" height="50"><br>
+    <%= p.quantity %> <%= p.species.pluralize(p.quantity) %> - <img src="<%= p.image %>" alt="<%= p.species.capitalize %>" height="50"><br>
   <% end %>
 </div>
 <br>
 
+<!--Not sure if I want these buttons in here.-->
 <% if @tank.user == current_user %>
     <%= button_to "Update Tank", edit_user_tank_path, method: :get %>
     <%= button_to "Delete Tank", user_tank_path, method: :delete %>
