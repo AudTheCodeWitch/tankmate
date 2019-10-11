@@ -27,6 +27,7 @@
 </div>
 <br>
 
+<!--Not sure if I want these buttons in here.-->
 <% if @tank.user == current_user %>
     <%= button_to "Update Tank", edit_user_tank_path, method: :get %>
     <%= button_to "Delete Tank", user_tank_path, method: :delete %>
