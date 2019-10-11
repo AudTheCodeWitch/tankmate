@@ -34,8 +34,12 @@
   <h4>Plants:</h4>
   <% @tank.plants.each do |p| %>
     <%= p.quantity %> <%= p.species.pluralize(p.quantity) %> - <img src="<%= p.image %>" alt="<%= p.species.capitalize %>" height="50"><br>
+    <% if @tank.user == current_user %>
+      <%= button_to "Update Stock", edit_tank_plant_path(@tank, p), method: :get %>
+    <% end %>
   <% end %>
   <% if @tank.user == current_user %>
+    <br>
     <%= button_to "Add Plants", new_tank_plant_path(@tank), method: :get %>
   <% end %>
 </div>
