@@ -1,0 +1,7 @@
+<h1><%= @user.name %>'s Maintenance List</h1>
+
+### Put _maintenances partial here to list maintenance tasks ###
+
+<% if @user == current_user %>
+  <%= button_to "Schedule Maintenance", new_user_maintenance_path(@user), method: :get %>
+<% end %>
