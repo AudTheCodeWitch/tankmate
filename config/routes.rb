@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'application#home'
+  root to: 'tanks#index'
   devise_for :users, :controllers => { registrations: 'registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :tanks, only: [:index] do
     resources :fish, only: [:new, :create, :update, :destroy, :edit]
