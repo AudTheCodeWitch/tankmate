@@ -11,11 +11,22 @@
 <h3>Description:</h3>
 <p><%= @tank.description %></p>
 
+<% if @tank.user == current_user %>
+  <%= button_to "Update Tank Details", edit_user_tank_path, method: :get %>
+<% end %>
+
 <h3>Stock List:</h3>
 <div>
   <h4>Fish:</h4>
   <% @tank.fish.each do |f| %>
     <%= f.quantity %> <%= f.species.pluralize(f.quantity) %> - <img src="<%= f.image %>" alt="<%= f.species.capitalize %>" height="50"><br>
+    <% if @tank.user == current_user %>
+      <%= button_to "Update Stock", edit_tank_fish_path(@tank, f), method: :get %>
+    <% end %>
+  <% end %>
+  <% if @tank.user == current_user %>
+    <br>
+    <%= button_to "Add Fish", new_tank_fish_path(@tank), method: :get %>
   <% end %>
 </div>
 
@@ -24,12 +35,9 @@
   <% @tank.plants.each do |p| %>
     <%= p.quantity %> <%= p.species.pluralize(p.quantity) %> - <img src="<%= p.image %>" alt="<%= p.species.capitalize %>" height="50"><br>
   <% end %>
+  <% if @tank.user == current_user %>
+    <%= button_to "Add Plants", new_tank_plant_path(@tank), method: :get %>
+  <% end %>
 </div>
 <br>
-
-<!--Not sure if I want these buttons in here.-->
-<% if @tank.user == current_user %>
-    <%= button_to "Update Tank", edit_user_tank_path, method: :get %>
-    <%= button_to "Delete Tank", user_tank_path, method: :delete %>
-<% end %>
 
