@@ -15,6 +15,11 @@ class PlantsController < ApplicationController
 
   def update
     @plant = Plant.find(params[:id])
+    if @plant.update(plant_params)
+      redirect_to user_tank_path(current_user, plant_params[:tank_id])
+    else
+      render 'edit'
+    end
   end
 
   def edit
