@@ -1,6 +1,7 @@
 class MaintenancesController < ApplicationController
   def index
-    @maintenances = Maintenance.all
+    @user = User.find(params[:user_id])
+    @maintenances = @user.maintenances
   end
 
   def show
