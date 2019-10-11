@@ -56,7 +56,6 @@
     <orderEntry type="library" scope="PROVIDED" name="dotenv (v2.7.5, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv-rails (v2.7.5, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.9.0, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="faker (v2.2.1, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday (v0.17.0, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.11.1, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
