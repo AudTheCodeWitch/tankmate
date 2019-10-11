@@ -37,6 +37,5 @@ class FishController < ApplicationController
 
   def fish_params
     params.require(:fish).permit(:species, :image, :quantity, :tank_id)
-
   end
 end
