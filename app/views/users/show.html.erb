@@ -2,8 +2,16 @@
 <% @user.tanks.each do |t| %>
   <%= link_to t.name, user_tank_path(@user, t) %> - <%= t.size %><br>
   <% if t.image %>
-    <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100">
+    <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100"><br>
+  <% end %>
+  <% if @user == current_user %>
+    <%= button_to "Update Tank", edit_user_tank_path(@user, t), method: :get %>
+    <%= button_to "Delete Tank", user_tank_path(@user, t), method: :delete %>
   <% end %>
   <br>
+
+  <% if @user == current_user %>
+    <%= button_to "Create Tank", new_user_tank_path(@user), method: :get %>
+  <% end %>
 
 <% end %>
