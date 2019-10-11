@@ -1,18 +1,13 @@
 class FishController < ApplicationController
-  def index
-    @fishes = Fish.all
-  end
 
   def new
     @fish = Fish.new
   end
 
   def create
-    @fish = Fish.new
-  end
-
-  def show
-    @fish = Fish.find(params[:id])
+    params[:fish_quantity].times do
+      @fish = Fish.create(fish_params)
+    end
   end
 
   def update
@@ -30,6 +25,7 @@ class FishController < ApplicationController
   private
 
   def fish_params
+    params.require(:fish).permit(:species, :image, :tank_id)
 
   end
 end

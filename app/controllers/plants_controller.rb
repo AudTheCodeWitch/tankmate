@@ -1,7 +1,4 @@
 class PlantsController < ApplicationController
-  def index
-    @plant = Plant.all
-  end
 
   def new
     @plant = Plant.new
@@ -9,10 +6,6 @@ class PlantsController < ApplicationController
 
   def create
     @plant = Plant.new
-  end
-
-  def show
-    @plant = Plant.find(params[:id])
   end
 
   def update
@@ -29,7 +22,7 @@ class PlantsController < ApplicationController
 
   private
 
-  def fish_params
+  def plant_params
 
   end
 end
