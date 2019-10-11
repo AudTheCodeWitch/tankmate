@@ -28,6 +28,9 @@ class PlantsController < ApplicationController
 
   def destroy
     @plant = Plant.find(params[:id])
+    tank = Tank.find(@plant.tank_id)
+    @plant.destroy
+    redirect_to user_tank_path(current_user, tank)
   end
 
   private
