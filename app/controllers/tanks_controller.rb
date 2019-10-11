@@ -41,6 +41,7 @@ class TanksController < ApplicationController
 
   def destroy
     @tank = Tank.find(params[:id])
+    @user = User.find(@tank.user_id)
     @tank.fish.each do |f|
       f.destroy
     end
@@ -48,7 +49,7 @@ class TanksController < ApplicationController
       p.destroy
     end
     @tank.destroy
-    redirect_to user_path
+    redirect_to user_path(@user)
   end
 
   private
