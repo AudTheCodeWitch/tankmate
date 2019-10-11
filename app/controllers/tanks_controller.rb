@@ -12,8 +12,15 @@ class TanksController < ApplicationController
   end
 
   def create
-    @tank = Tank.create(tank_params)
-    redirect_to user_tank_path(@tank)
+    @user = current_user
+    @tank = Tank.new(tank_params)
+    if @tank.save
+      # binding.pry
+      redirect_to user_tank_path(@user, @tank)
+    else
+      render :new
+    end
+
   end
 
   def edit
