@@ -29,11 +29,11 @@ end
 
 # Populate tanks with fish and plants
 Tank.all.each do |t|
-  t.fish.build(species: "Betta")
-  t.fish.build(species: "Neon Tetra")
-  t.fish.build(species: "Zebra Danio")
-  t.plants.build(species: "Cabomba")
-  t.plants.build(species: "Moss Ball")
-  t.plants.build(species: "Java Moss")
+  t.fish.build(species: "Betta", quantity: 6)
+  t.fish.build(species: "Neon Tetra", quantity: 10)
+  t.fish.build(species: "Zebra Danio", quantity: 7)
+  t.plants.build(species: "Cabomba", quantity: 10)
+  t.plants.build(species: "Moss Ball", quantity: 4)
+  t.plants.build(species: "Java Moss", quantity: 15)
   t.save
 end
