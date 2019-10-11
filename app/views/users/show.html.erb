@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.name %>'s Tanks</h1>
+<% @user.tanks.each do |t| %>
+  <%= link_to t.name, user_tank_path(@user, t) %> - <%= t.size %><br>
+  <% if t.image %>
+    <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100">
+  <% end %>
+  <br>
+
+<% end %>
