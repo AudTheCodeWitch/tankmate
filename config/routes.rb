@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show] do
     resources :tanks, only: [:new, :create, :show, :update, :destroy, :edit]
-    resources :tasks, only: [:new, :create, :update, :destroy, :edit]
-    resources :maintenances, only: [:index, :index]
+    resources :maintenances, only: [:new, :index, :create, :show, :update, :destroy, :edit]
+    resources :tasks, only: [:index, :edit, :update, :destroy]
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

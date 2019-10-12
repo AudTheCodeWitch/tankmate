@@ -1,24 +1,7 @@
 class TasksController < ApplicationController
 
-  # I don't think we want this. Users will see maintenance through users/maintenances
-  # def show
-  #   @task = Task.find(params[:id])
-  # end
-
-  def new
-    @task = Task.new
-    @task.maintenances.build
-  end
-
-  def create
-    @task = Task.new(task_params)
-    binding.pry
-    if @task.save
-      @task.update(task_params)
-      redirect_to user_maintenances_path(current_user)
-    else
-      render :new
-    end
+  def index
+    @tasks = current_user.tasks
   end
 
   def update
@@ -36,7 +19,6 @@ class TasksController < ApplicationController
 
   def destroy
     @task = Task.find(params[:id])
-    tank = Tank.find(@task.tank_id)
     @task.destroy
     redirect_to user_maintenances_path(current_user)
   end
@@ -44,12 +26,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(
-        :due,
-        :title,
-        :notes,
-        :maintenances_attributes => [:complete, tank_id: []]
-    )
+    params.require(:task).permit(:title)
   end
 end
 

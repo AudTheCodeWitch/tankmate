@@ -1,0 +1,16 @@
+<h1>Schedule Maintenance</h1>
+<% if @maintenance.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@maintenance.errors.count, "error") %>
+      prohibited this maintenance from being scheduled:
+    </h2>
+
+    <ul>
+      <% @maintenance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= render 'form' %>
