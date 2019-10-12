@@ -1,0 +1,32 @@
+<%= form_for([:user, @task]) do |f| %>
+  <div><%= f.label :due, "Due Date:" %>
+    <%= f.date_select :due %><br>
+    <%= f.fields_for :maintenances do |m| %>
+      <p><%= m.label :complete?, 'Complete:' %>
+      <%= m.check_box :complete? %></p>
+  </div>
+
+  <fieldset>
+    <legend>Select Tanks</legend>
+      <%= m.collection_check_boxes :tank_ids, current_user.tanks.all.each, :id, :name do |t| %><br>
+        <%= t.label(class: 'check_box') do %>
+          <%= t.check_box(class: 'check_box') %>
+          <%= t.object.name %><br>
+        <% end %>
+      <% end %>
+    <% end %>
+  </fieldset>
+<br>
+  <div>
+    <!-- Select or create tasks -->
+    <p><%= f.label :title, "Select Task:" %>
+      <%= f.collection_select(:title, Task.all, :id, :title, {include_blank: "Create New Task Below"}) %><br>
+    <%= f.text_field :title %></p>
+    <p><%= f.label :notes %>:<br>
+    <%= f.text_area :notes %></p>
+
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
