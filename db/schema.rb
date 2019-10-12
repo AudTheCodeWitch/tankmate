@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_10_11_192035) do
 
   create_table "maintenances", force: :cascade do |t|
     t.boolean "complete"
+    t.date "due"
+    t.text "notes"
     t.integer "tank_id"
     t.integer "task_id"
   end
@@ -53,8 +55,6 @@ ActiveRecord::Schema.define(version: 2019_10_11_192035) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
-    t.date "due"
-    t.text "notes"
   end
 
   create_table "users", force: :cascade do |t|
