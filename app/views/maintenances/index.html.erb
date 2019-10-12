@@ -1,0 +1,3 @@
+<% @maintenances.each do |m| %>
+  <%= m.task.due %> - <%= m.task.title %> - <%= m.tank.name %><br>
+<% end %>

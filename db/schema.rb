@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_10_11_192035) do
   end
 
   create_table "maintenances", force: :cascade do |t|
-    t.boolean "complete?"
+    t.boolean "complete"
     t.integer "tank_id"
     t.integer "task_id"
   end
