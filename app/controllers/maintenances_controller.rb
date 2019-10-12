@@ -13,12 +13,19 @@ class MaintenancesController < ApplicationController
   end
 
   def create
-    maintenance_params[:tank_id].each do |t|
-      unless t.blank?
-        @maintenance = Maintenance.new(maintenance_params)
-        @maintenance.tank_id = t
-        @maintenance.task_id = set_task(maintenance_params)
-        render :new and return unless @maintenance.save
+    if maintenance_params[:tank_id].length == 1
+      @maintenance = Maintenance.new
+      @maintenance.errors.add(:tank_id, :blank, message: "must be selected.")
+      render :new and return
+      else
+      maintenance_params[:tank_id].each do |t|
+        unless t.blank?
+          @maintenance = Maintenance.new(maintenance_params)
+          binding.pry
+          @maintenance.tank_id = t
+          @maintenance.task_id = set_task(maintenance_params)
+          render :new and return unless @maintenance.save
+        end
       end
     end
 

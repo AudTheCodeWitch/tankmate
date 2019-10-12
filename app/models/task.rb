@@ -4,6 +4,8 @@ class Task < ApplicationRecord
   accepts_nested_attributes_for :maintenances
   accepts_nested_attributes_for :tanks
 
+  validates_presence_of :title
+
 
   # def maintenances_attributes=(maintenances_attributes)
   #   maintenances_attributes[:tank_id].each do |t|
