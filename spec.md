@@ -19,8 +19,15 @@ Specs:
     - User has_many Fish, through Tanks
     - User has_many Plants, through Tanks
     
-- [ ] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
-- [ ] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+- [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
+
+    - Tank has_many Tasks, through Maintenance
+    - Task has_many Tanks, through Maintenance
+    
+- [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+
+    - Maintenance has :complete and :due
+    
 - [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 - [x] Include signup (how e.g. Devise)
@@ -31,7 +38,7 @@ Specs:
 
     - users/:user_id/tanks/:id
     
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 
     - users/:user_id/tanks/new
     - tanks/:tank_id/plants/new
