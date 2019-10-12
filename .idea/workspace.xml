@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f77931d-b906-4bac-b428-a4e2868de96b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tankmate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tankmate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6f77931d-b906-4bac-b428-a4e2868de96b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +205,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570905210580</updated>
-      <workItem from="1570905212842" duration="1959000" />
+      <workItem from="1570905212842" duration="2324000" />
     </task>
     <task id="LOCAL-00001" summary="Rebuild idea folder">
       <created>1570905291571</created>
@@ -226,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570905319915</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update idea folder">
+      <created>1570907249951</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570907249951</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +247,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rebuild idea folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rebuild idea folder" />
+    <MESSAGE value="Update idea folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update idea folder" />
   </component>
 </project>
