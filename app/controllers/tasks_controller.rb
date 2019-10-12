@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
 
-  def show
-    @task = Task.find(params[:id])
-  end
+  # I don't think we want this. Users will see maintenance through users/maintenances
+  # def show
+  #   @task = Task.find(params[:id])
+  # end
 
   def new
     @task = Task.new
@@ -40,7 +41,14 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:species, :image, :quantity, :tank_id)
+    params.require(:task).permit(
+        :species,
+        :image,
+        :quantity,
+        :tank_id,
+        :complete?,
+        tank_ids: []
+    )
   end
 end
 
