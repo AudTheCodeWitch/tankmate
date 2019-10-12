@@ -26,7 +26,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/cache" />
     </content>
-    <orderEntry type="jdk" jdkName="Remote-rvm: ruby-2.6.1-p33" jdkType="RUBY_SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="actioncable (v6.0.0, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v6.0.0, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
@@ -129,9 +129,5 @@
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.4, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="xpath (v3.2.0, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.2.0, Remote-rvm: ruby-2.6.1-p33) [gem]" level="application" />
-  </component>
-  <component name="RModuleSettingsStorage">
-    <LOAD_PATH number="0" />
-    <I18N_FOLDERS number="1" string0="$MODULE_DIR$/config/locales" />
   </component>
 </module>
