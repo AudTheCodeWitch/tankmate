@@ -18,7 +18,7 @@ class MaintenancesController < ApplicationController
         @maintenance = Maintenance.new(maintenance_params)
         @maintenance.tank_id = t
         @maintenance.task_id = set_task(maintenance_params)
-        render :new unless @maintenance.save
+        render :new and return unless @maintenance.save
       end
     end
 
