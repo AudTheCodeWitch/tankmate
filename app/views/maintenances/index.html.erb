@@ -1,3 +1,26 @@
-<% @maintenances.each do |m| %>
-  <%= m.due %> - <%= m.task.title %> - <%= m.tank.name %><br>
-<% end %>
+<h1>Tank Maintenance Log</h1>
+
+<%= button_to "Schedule Maintenance", new_user_maintenance_path(current_user), method: :get %>
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Date</th>
+    <th>Task</th>
+    <th>Tank</th>
+  </tr>
+  <% @maintenances.each do |m| %>
+    <tr>
+      <td><%= m.status %></td>
+      <td><%= m.due %></td>
+      <td><%= m.task.title %></td>
+      <td><%= m.tank.name %></td>
+      <td><%= link_to "Update", edit_user_maintenance_path(current_user, m), method: :get %></td>
+    </tr>
+  <% if m.complete %>
+    <tr>
+      <td>Notes:</td>
+      <td colspan="4"><%= m.notes %></td></tr>
+    <% end %>
+  <% end %>
+</table>
