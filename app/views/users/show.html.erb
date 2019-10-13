@@ -25,3 +25,13 @@
     <%= button_to "Create Tank", new_user_tank_path(@user), method: :get %>
   <% end %>
 </div>
+
+<div>
+  <h2>Upcoming Maintenance</h2>
+  <ul>
+    <% @user.maintenances.this_week.order(:due).each do |m| %>
+      <li><%= m.due.strftime("%A, %b %e") %> - <%= m.tank.name %> - <%= m.task.title %></li>
+    <% end %>
+  </ul>
+  <%= button_to "View All Scheduled Maintenance", user_maintenances_path(@user), method: :get %>
+</div>
