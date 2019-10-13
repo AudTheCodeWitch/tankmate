@@ -29,7 +29,25 @@ class MaintenancesController < ApplicationController
         end
       end
     end
+    redirect_to user_maintenances_path(current_user)
+  end
 
+  def edit
+    @maintenance = Maintenance.find(params[:id])
+  end
+
+  def update
+    @maintenance = Maintenance.find(params[:id])
+    if @maintenance.update(maintenance_params)
+      redirect_to user_maintenances_path(current_user)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @maintenance = Maintenance.find(params[:id])
+    @maintenance.destroy
     redirect_to user_maintenances_path(current_user)
   end
 
