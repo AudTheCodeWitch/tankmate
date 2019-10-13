@@ -29,7 +29,17 @@ Specs:
     - Maintenance has :complete and :due
     
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+
+    - Maintenance sort feature
+        - self.by_tank(tank)
+        - self.by_task(task)
+        - self.today
+        - self.upcoming
+        - self.overdue
+        - self.by_complete
+        - self.by_incomplete
+
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
 - [x] Include logout (how e.g. Devise)
