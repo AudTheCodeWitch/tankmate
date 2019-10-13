@@ -1,4 +1,5 @@
 class MaintenancesController < ApplicationController
+  helper_method :params
   def index
     @user = User.find(params[:user_id])
     @maintenances = @user.maintenances

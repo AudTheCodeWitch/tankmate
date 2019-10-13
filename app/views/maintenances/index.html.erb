@@ -1,26 +1,59 @@
+<% if !params[:tank].blank? %>
+  <% @maintenances = Maintenance.where(tank: params[:tank]) %>
+<% elsif !params[:task].blank? %>
+  <% @maintenances = Maintenance.where(task: params[:task]) %>
+<% elsif !params[:due].blank? %>
+  <% if params[:due] == 'Today' %>
+    <% @maintenances = Maintenance.where('due =?', Date.today) %>
+  <% elsif params[:due] == 'Upcoming' %>
+    <% @maintenances = Maintenance.where('due >?', Date.today) %>
+  <% else %>
+    <% @maintenances = Maintenance.where('due <?', Date.today) %>
+  <% end %>
+<% elsif !params[:status].blank? %>
+  <% if params[:status] == 'Complete' %>
+    <% @maintenances = Maintenance.where(complete: true) %>
+  <% else %>
+    <% @maintenances = Maintenance.where(complete: false) %>
+  <% end %>
+<% end %>
+
 <h1>Tank Maintenance Log</h1>
 
 <%= button_to "Schedule Maintenance", new_user_maintenance_path(current_user), method: :get %>
 
-<table>
-  <tr>
-    <th>Status</th>
-    <th>Date</th>
-    <th>Task</th>
-    <th>Tank</th>
-  </tr>
-  <% @maintenances.each do |m| %>
+<br>
+<div>
+  <table>
     <tr>
-      <td><%= m.status %></td>
-      <td><%= m.due %></td>
-      <td><%= m.task.title %></td>
-      <td><%= m.tank.name %></td>
-      <td><%= link_to "Update", edit_user_maintenance_path(current_user, m), method: :get %></td>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Task</th>
+      <th>Tank</th>
     </tr>
-  <% if m.complete %>
     <tr>
-      <td>Notes:</td>
-      <td colspan="4"><%= m.notes %></td></tr>
+      <%= form_tag("/users/#{current_user.id}/maintenances", method: 'get') do %>
+        <td><%= select_tag 'status', options_for_select(['Complete', 'Incomplete']), include_blank: "Filter by Status" %></td>
+        <td><%= select_tag 'due', options_for_select(['Today', 'Upcoming', 'Overdue']), include_blank: "Filter by Date" %></td>
+        <td><%= select_tag 'task', options_from_collection_for_select(current_user.tasks.uniq, 'id', 'title'), include_blank: "Filter by Task" %></td>
+        <td><%= select_tag 'tank', options_from_collection_for_select(current_user.tanks, 'id', 'name'), include_blank: "Filter by Tank" %></td>
+        <td><%= submit_tag 'Filter' %></td>
+      <% end %>
+
+    </tr>
+    <% @maintenances.each do |m| %>
+      <tr>
+        <td><%= m.status %></td>
+        <td><%= m.due %></td>
+        <td><%= m.task.title %></td>
+        <td><%= m.tank.name %></td>
+        <td><%= link_to "Update", edit_user_maintenance_path(current_user, m), method: :get %></td>
+      </tr>
+    <% if m.complete %>
+      <tr>
+        <td>Notes:</td>
+        <td colspan="4"><%= m.notes %></td></tr>
+      <% end %>
     <% end %>
-  <% end %>
-</table>
+  </table>
+</div>
