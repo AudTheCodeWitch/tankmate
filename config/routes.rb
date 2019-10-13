@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show] do
     resources :tanks, only: [:new, :create, :show, :update, :destroy, :edit]
-    resources :maintenances, only: [:new, :index, :create, :show, :update, :destroy, :edit]
+    resources :maintenances, only: [:new, :index, :create, :update, :destroy, :edit]
     resources :tasks, only: [:index, :edit, :update, :destroy]
 
   end

@@ -25,10 +25,6 @@ class MaintenancesController < ApplicationController
     end
   end
 
-  def show
-    @maintenance = Maintenance.find(params[:id])
-  end
-
   def new
     @maintenance = Maintenance.new
   end
