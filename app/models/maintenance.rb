@@ -44,5 +44,9 @@ class Maintenance < ApplicationRecord
     where(complete: false)
   end
 
+  def self.this_week
+    where('due >=?', Date.today) && where('due <=?', (Date.today + 7))
+  end
+
 
 end
