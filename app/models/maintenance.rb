@@ -12,5 +12,9 @@ class Maintenance < ApplicationRecord
     end
   end
 
+  def status
+    complete ? "Complete" : "Incomplete"
+  end
+
 
 end
