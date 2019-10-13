@@ -1,8 +1,13 @@
+<h1>TankMate</h1>
+<h2>Recent Additions</h2>
 <ul>
-<% @tanks.each do |t| %>
+<% @tanks.recent.each do |t| %>
   <li>
     Owner: <%= t.user.name %><br>
-    Tank: <%= t.name %> - <%= t.size %> gallons<br>
+    Tank: <%= link_to t.name, user_tank_path(t.user, t) %> - <%= t.size %> gallons<br>
+    <% if !t.image.blank? %>
+      <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100"><br>
+    <% end %>
     <%= t.description %><br><br>
   </li>
 <% end %>
