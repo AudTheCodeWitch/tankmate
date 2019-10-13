@@ -1,24 +1,24 @@
-# README
+# TankMate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to TankMate, an aquarium management app. Users can create and stock tanks with fish and plants. They can also schedule and track maintenance tasks. 
 
-Things you may want to cover:
+## Usage
 
-* Ruby version
+To use TankMate, clone this repo to your machine. Then, run:
 
-* System dependencies
+    $ bundle install
+    $ rails s
 
-* Configuration
+Click the link posted in your terminal to access the site. To stop, enter ctrl-c in your terminal.
 
-* Database creation
+## Contributing
 
-* Database initialization
+Bug reports and pull requests are welcome on GitHub at https://github.com/AudTheCodeWitch/TankMate. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-* Deployment instructions
+## Code of Conduct
 
-* ...
+Everyone interacting in the TankMate project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/AudTheCodeWitch/TankMate/blob/master/CODE_OF_CONDUCT.md).
