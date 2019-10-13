@@ -1,9 +1,9 @@
 
 
-<h1>Tank Maintenance Log</h1>
-
-<%= button_to "Schedule Maintenance", new_user_maintenance_path(@user), method: :get %>
-
+<h1><%= link_to "#{@user.name}'s", user_path(@user) %> Tank Maintenance Log</h1>
+<% if @user == current_user %>
+  <%= button_to "Schedule Maintenance", new_user_maintenance_path(@user), method: :get %>
+<% end %>
 <br>
 <div>
   <table>
@@ -23,17 +23,20 @@
       <% end %>
 
     </tr>
-    <% @maintenances.each do |m| %>
+    <% @maintenances.order(:due).each do |m| %>
       <tr>
         <td><%= m.status %></td>
         <td><%= m.due %></td>
         <td><%= m.task.title %></td>
-        <td><%= m.tank.name %></td>
-        <td><%= link_to "Update", edit_user_maintenance_path(@user, m), method: :get %></td>
+        <td><%= link_to m.tank.name, user_tank_path(@user, m.tank) %></td>
+        <% if @user == current_user %>
+          <td><%= link_to "Update", edit_user_maintenance_path(@user, m), method: :get %></td>
+        <% end %>
       </tr>
     <% if m.complete %>
       <tr>
-        <td>Notes:</td>
+        <td></td>
+        <td valign="top">Notes:</td>
         <td colspan="4"><%= m.notes %></td></tr>
       <% end %>
     <% end %>
