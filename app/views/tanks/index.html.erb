@@ -5,7 +5,7 @@
   <li>
     Owner: <%= t.user.name %><br>
     Tank: <%= link_to t.name, user_tank_path(t.user, t) %> - <%= t.size %> gallons<br>
-    <% if !t.image.blank? %>
+    <% unless t.image.blank? %>
       <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100"><br>
     <% end %>
     <%= t.description %><br><br>

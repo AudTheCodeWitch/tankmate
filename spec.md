@@ -39,6 +39,7 @@ Specs:
         - self.overdue
         - self.by_complete
         - self.by_incomplete
+        - self.this_week
 
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
