@@ -54,6 +54,9 @@ class TanksController < ApplicationController
     @tank.plants.each do |p|
       p.destroy
     end
+    @tank.maintenances.each do |m|
+      m.destroy
+    end
     @tank.destroy
     redirect_to user_path(@user)
   end
