@@ -1,12 +1,12 @@
 <%= form_for( [:user, @tank] ) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <p><%= f.label :name %>:
+  <p><%= f.label :name %>
     <%= f.text_field :name %></p>
-  <p><%= f.label :size, "Size (gallons)" %>:
+  <p><%= f.label :size, "Size (gallons)" %>
     <%= f.number_field :size %><br></p>
-  <p><%= f.label :description %>:<br>
+  <p><%= f.label :description %><br>
     <%= f.text_area :description %></p>
-  <p><%= f.label :image, "Image URL" %>:
+  <p><%= f.label :image, "Image URL" %>
     <%= f.text_field :image %></p>
   <%= f.submit %>
 <% end %>
