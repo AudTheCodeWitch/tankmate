@@ -16,11 +16,6 @@
     <% unless t.image.blank? %>
       <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100"><br>
     <% end %>
-    <% if @user == current_user %>
-      <%= button_to "Update Tank", edit_user_tank_path(@user, t), method: :get %>
-      <%= button_to "Delete Tank", user_tank_path(@user, t), method: :delete %>
-    <% end %>
-    <br>
   <% end %>
 
   <% if @user == current_user %>
