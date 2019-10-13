@@ -1,0 +1,14 @@
+<% if @plant.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@plant.errors.count, "error") %>
+      prohibited this action from being saved:
+    </h2>
+
+    <ul>
+      <% @plant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
