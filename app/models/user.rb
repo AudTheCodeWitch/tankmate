@@ -48,5 +48,21 @@ class User < ApplicationRecord
     plants_count
   end
 
+  def completed_tasks_count
+    completed_tasks = 0
+    maintenances.each do |m|
+      completed_tasks += 1 if m.complete
+    end
+    completed_tasks
+  end
+
+  def incomplete_tasks_count
+    incomplete_tasks = 0
+    maintenances.each do |m|
+      incomplete_tasks += 1 unless m.complete
+    end
+    incomplete_tasks
+  end
+
 
 end

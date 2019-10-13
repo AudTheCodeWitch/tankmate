@@ -1,21 +1,24 @@
 <h1><%= @user.name %></h1>
+<% if @user == current_user %>
+  <%= button_to "Edit User", edit_user_registration_path(@user), method: :get %>
+<% end %>
 <div>
   <h2>Stats</h2>
   <p>Total tanks: <%= @user.tanks.count %></p>
   <p>Total gallons: <%= @user.gallons %></p>
   <p>Total fish: <%= @user.fish_count %></p>
   <p>Total plants: <%= @user.plants_count %></p>
-  <p>Completed Tasks: WRITE METHOD</p>
-  <p>Incomplete Tasks: WRITE METHOD</p>
+  <p>Completed Tasks: <%= @user.completed_tasks_count %></p>
+  <p>Incomplete Tasks: <%= @user.incomplete_tasks_count %></p>
 </div>
 
 <div>
   <h2>Tanks</h2>
   <% @user.tanks.each do |t| %>
-    <%= link_to t.name, user_tank_path(@user, t) %> - <%= t.size %> gallons<br>
+    <p><%= link_to t.name, user_tank_path(@user, t) %> - <%= t.size %> gallons<br>
     <% unless t.image.blank? %>
       <img src="<%= t.image %>" alt="<%= t.name.capitalize %>" height="100"><br>
-    <% end %>
+      <% end %></p>
   <% end %>
 
   <% if @user == current_user %>
