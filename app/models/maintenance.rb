@@ -16,5 +16,33 @@ class Maintenance < ApplicationRecord
     complete ? "Complete" : "Incomplete"
   end
 
+  def self.by_tank(tank)
+    where(tank: tank)
+  end
+
+  def self.by_task(task)
+    where(task: task)
+  end
+
+  def self.today
+    where('due =?', Date.today)
+  end
+
+  def self.upcoming
+    where('due >?', Date.today)
+  end
+
+  def self.overdue
+    where('due <?', Date.today)
+  end
+
+  def self.by_complete
+    where(complete: true)
+  end
+
+  def self.by_incomplete
+    where(complete: false)
+  end
+
 
 end
