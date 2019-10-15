@@ -1,5 +1,6 @@
 class TanksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]
   def index
     @tanks = Tank.all
   end
@@ -62,6 +63,10 @@ class TanksController < ApplicationController
   end
 
   private
+
+  def redirect_if_not_authorized
+    redirect_to '/' unless current_user == Tank.find(params[:id]).user
+  end
 
   def tank_params
     params.require(:tank).permit(:name, :size, :description, :image, :user_id)

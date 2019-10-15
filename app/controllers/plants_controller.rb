@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-
+  before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]
   def new
     @plant = Plant.new(tank_id: params[:tank_id])
   end
@@ -34,6 +34,12 @@ class PlantsController < ApplicationController
   end
 
   private
+
+  def redirect_if_not_authorized
+    unless current_user == Plant.find(params[:id]).tank.user
+      redirect_to user_tank_path(Plant.find(params[:tank_id]).user, params[:tank_id])
+    end
+  end
 
   def plant_params
     params.require(:plant).permit(:species, :image, :quantity, :tank_id)

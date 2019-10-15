@@ -1,4 +1,5 @@
 class MaintenancesController < ApplicationController
+  before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]
   helper_method :params
   def index
     @user = User.find(params[:user_id])
@@ -47,6 +48,7 @@ class MaintenancesController < ApplicationController
   end
 
   def edit
+    binding.pry
     @maintenance = Maintenance.find(params[:id])
   end
 
@@ -66,6 +68,12 @@ class MaintenancesController < ApplicationController
   end
 
   private
+
+  def redirect_if_not_authorized
+    unless current_user == params[:user_id]
+      redirect_to user_maintenances_path(params[:user_id])
+    end
+  end
 
   def maintenance_params
     params.require(:maintenance).permit(
