@@ -48,7 +48,6 @@ class MaintenancesController < ApplicationController
   end
 
   def edit
-    binding.pry
     @maintenance = Maintenance.find(params[:id])
   end
 
@@ -70,7 +69,7 @@ class MaintenancesController < ApplicationController
   private
 
   def redirect_if_not_authorized
-    unless current_user == params[:user_id]
+    unless current_user.id.to_s == params[:user_id]
       redirect_to user_maintenances_path(params[:user_id])
     end
   end
