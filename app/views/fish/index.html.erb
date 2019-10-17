@@ -1,0 +1,24 @@
+<% if @fishes == Fish.all %>
+  <h1>Fish Owners List</h1>
+  <% else %>
+  <h1><%= @fishes.first.species %> Owners List</h1>
+<% end %>
+<%= form_tag("/fish", method: 'get') do %>
+  <%= label_tag 'search', 'Search For Fish:' %>
+  <%= text_field_tag 'search' %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<ul>
+  <% owners = owners_list(@fishes) %>
+  <% owners.each do |owner| %>
+    <li><%=link_to owner.name, user_path(owner.id) %>
+      <% tanks = tank_list(owner, @fishes) %>
+      <ol>
+        <% tanks.each do |tank| %>
+        <li><%= link_to tank.name, user_tank_path(tank.user_id, tank) %></li>
+        <% end %>
+      </ol>
+  </li>
+  <% end %>
+</ul>
