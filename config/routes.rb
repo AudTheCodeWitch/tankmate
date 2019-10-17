@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'tanks#index'
   devise_for :users, :controllers => { registrations: 'registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :fish, only: [:index]
+
   resources :tanks, only: [] do
     resources :fish, only: [:new, :create, :update, :destroy, :edit]
     resources :plants, only: [:new, :create, :update, :destroy, :edit]
