@@ -39,9 +39,12 @@ class Maintenance < ApplicationRecord
     where(task: task)
   end
 
-  def self.today
-    where('due =?', Date.today)
-  end
+  # scope :active, -> { where state: 'active' }
+  scope :today, -> { where 'due =?', Date.today }
+
+  # def self.today
+  #   where('due =?', Date.today)
+  # end
 
   def self.upcoming
     where('due >?', Date.today)
