@@ -4,6 +4,14 @@ class FishController < ApplicationController
     @fish = Fish.new(tank_id: params[:tank_id])
   end
 
+  def index
+    if params[:search] && !params[:search].blank?
+      @fishes = Fish.where("species like ?", "%#{params[:search].titleize}%")
+    else
+      @fishes = Fish.all
+    end
+  end
+
   def create
     @fish = Fish.new(fish_params)
     if @fish.save
