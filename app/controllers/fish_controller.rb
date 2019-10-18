@@ -7,6 +7,11 @@ class FishController < ApplicationController
   def index
     if params[:search] && !params[:search].blank?
       @fishes = Fish.where("species like ?", "%#{params[:search].titleize}%")
+      if @fishes.empty?
+        flash[:notice] = "Fish not found"
+        @fishes = Fish.all
+        render :index
+      end
     else
       @fishes = Fish.all
     end
